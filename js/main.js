@@ -3,6 +3,11 @@ var mObjectsList;
 var debug = document.getElementById("debug");
 var elementDragged = null;
 
+var audio1 = null;
+var audio2 = null;
+var audio3 = null;
+var audio4 = null;
+
 function Initialize()
 {
 	document.getElementById("startBtn").disabled = true;
@@ -35,10 +40,52 @@ function InitializeObjects()
 {
 }
 
-function PlayAudio(audioId)
+function PlayAudio1()
 {
-	var audio = document.getElementById(audioId);
-	audio.play();
+	audio1.play();
+}
+
+function PlayAudio2()
+{
+	audio2.play();
+}
+
+function PlayAudio3()
+{
+	audio3.play();
+}
+
+function PlayAudio4()
+{
+	audio4.play();
+}
+
+function EndPlay()
+{
+	audio1.removeEventListener('ended', PlayAudio2);
+	audio2.removeEventListener('ended', PlayAudio3);
+	audio3.removeEventListener('ended', PlayAudio4);
+	audio4.removeEventListener('ended', EndPlay);
+	
+	audio1 = null;
+	audio2 = null;
+	audio3 = null;
+	audio4 = null;
+}
+
+function PlayAudioCombined(a1, a2, a3, a4)
+{
+	audio1 = document.getElementById(a1);
+	audio2 = document.getElementById(a2);
+	audio3 = document.getElementById(a3);
+	audio4 = document.getElementById(a4);
+	
+	audio1.addEventListener('ended', PlayAudio2);
+	audio2.addEventListener('ended', PlayAudio3);
+	audio3.addEventListener('ended', PlayAudio4);
+	audio4.addEventListener('ended', EndPlay);
+	
+	PlayAudio1();
 }
 
 function HandleDragStart(e)
@@ -76,7 +123,7 @@ function HandleDragOver(e)
 
 function Instruction1()
 {
-	PlayAudio("audioTest");
+	PlayAudioCombined("audioPut", "audioMonkey", "audioAbove", "audioBird");
 	
 	// Make corresponding object draggable
 	var monkey = document.getElementById("monkey");
