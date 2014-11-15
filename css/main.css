@@ -143,7 +143,13 @@ body{
 .img-turtle{
     background: transparent url("../img/turtle-rev.jpg") no-repeat 0 0;
 }
-
+ul{
+    list-style-type: none;
+    padding-left: 0
+}
+li{
+    display: inline-block;
+}
 
 
 
