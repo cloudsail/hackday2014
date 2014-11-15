@@ -108,7 +108,7 @@ h1{
 }
 .grid .col-md-4{
     height: 110px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
 }   
 .inner-grid, .inner-pics{
     display: inline-block;
@@ -162,7 +162,32 @@ li{
     font-size: 300%;
 }
 
+.button.b-close{
+	border-radius:7px 7px 7px 7px;
+	box-shadow:none;
+	font:bold 131% sans-serif;
+	padding:0 6px 2px;
+	position:absolute;
+	right:-7px;
+	top:-7px
+}
 
+#popup,
+.bMulti{
+	background-color:#fff;
+	border-radius:10px 10px 10px 10px;
+	box-shadow:0 0 25px 5px #999;
+	color:#111;
+	display:none;
+	min-width:450px;
+	padding:25px
+}
+
+.logo{
+	color:#2b91af;
+	font-size:325%;
+	font-weight:bold
+}
 
 
 

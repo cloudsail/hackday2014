@@ -37,7 +37,7 @@ function Initialize()
 
 function ResetGame()
 {
-	alert("You Won!");
+	$('#popup').bPopup();
 	
 	var lbl = document.getElementById("animalName");
 	lbl.innerHTML='';
