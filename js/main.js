@@ -192,8 +192,6 @@ function Instruction1()
 			ui.draggable.position( { of: $(this), my: 'center center', at: 'center center' } );
 			ui.draggable.draggable( 'option', 'revert', false );
 			
-			document.getElementById("audioSuccess").play();
-			
 			Instruction2();
 		}
 	});
@@ -222,8 +220,6 @@ function Instruction2()
 			$(this).droppable( 'disable' );
 			ui.draggable.position( { of: $(this), my: 'center center', at: 'center center' } );
 			ui.draggable.draggable( 'option', 'revert', false );
-			
-			document.getElementById("audioSuccess").play();
 			
 			Instruction3();
 		}
