@@ -117,31 +117,31 @@ body{
     cursor: pointer;
 }
 .img-bird{
-    background: transparent url("../img/bird-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/bird.jpg") no-repeat 0 0;
 }
 .img-giraffe{
-    background: transparent url("../img/giraffe-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/giraffe.jpg") no-repeat 0 0;
 }
 .img-elephant{
-    background: transparent url("../img/elephant-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/elephant.jpg") no-repeat 0 0;
 }
 .img-lion{
-    background: transparent url("../img/lion-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/lion.jpg") no-repeat 0 0;
 }
 .img-monkey{
-    background: transparent url("../img/monkey-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/monkey.jpg") no-repeat 0 0;
 }
 .img-penguin{
-    background: transparent url("../img/penguin-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/penguin.jpg") no-repeat 0 0;
 }
 .img-seahorse{
-    background: transparent url("../img/seahorse-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/seahorse.jpg") no-repeat 0 0;
 }
 .img-snake{
-    background: transparent url("../img/snake-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/snake.jpg") no-repeat 0 0;
 }
 .img-turtle{
-    background: transparent url("../img/turtle-rev.jpg") no-repeat 0 0;
+    background: transparent url("../img/turtle.jpg") no-repeat 0 0;
 }
 ul{
     list-style-type: none;
