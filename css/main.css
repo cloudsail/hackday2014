@@ -98,6 +98,10 @@ textarea {
    ========================================================================== */
 body{
     text-align: center;
+    background: transparent url("../img/bg-kids.jpg") no-repeat 0 0;
+}
+h1{
+    color: #fff62d;
 }
 .grid .col-md-4{
     height: 110px;
