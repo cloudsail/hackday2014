@@ -18,7 +18,7 @@ function Initialize()
 {
 	var button = document.getElementById("startBtn");
 	button.disabled = true;
-	
+
 	if (button.value === "Play Again!")
 	{
 		for (i = 1; i <= 9; i++)
@@ -39,6 +39,9 @@ function ResetGame()
 {
 	alert("You Won!");
 	
+	var lbl = document.getElementById("animalName");
+	lbl.innerHTML='';
+
 	var button = document.getElementById("startBtn");
 	button.value = "Play Again!";
 	button.disabled = false;
@@ -170,6 +173,9 @@ function Instruction1()
 	elemName = mObjectsList.splice(index, 1)[0];
 	refElem1Name = elemName;
 
+	var lbl = document.getElementById("animalName");
+	lbl.innerHTML=elemName;
+
 	PlayAudioCombined("audioPut", "audio" + elemName, "audioAbove", "audio" + setElem1Name);
 	
 	$('#' + elemName).draggable({
@@ -196,6 +202,9 @@ function Instruction2()
 	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
 	elemName = mObjectsList.splice(index, 1)[0];
 	
+	var lbl = document.getElementById("animalName");
+	lbl.innerHTML=elemName;
+
 	PlayAudioCombined("audioPut", "audio" + elemName, "audioBelow", "audio" + setElem1Name);
 	
 	$('#' + elemName).draggable({
@@ -222,6 +231,9 @@ function Instruction3()
 	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
 	elemName = mObjectsList.splice(index, 1)[0];
 	
+	var lbl = document.getElementById("animalName");
+	lbl.innerHTML=elemName;
+
 	PlayAudioCombined("audioPut", "audio" + elemName, "audioBeside", "audio" + setElem2Name);
 	
 	$('#' + elemName).draggable({
@@ -249,6 +261,9 @@ function Instruction4()
 	elemName = mObjectsList.splice(index, 1)[0];
 	refElem3Name = elemName;
 	
+	var lbl = document.getElementById("animalName");
+	lbl.innerHTML=elemName;
+
 	PlayAudioCombined("audioPut", "audio" + elemName, "audioBeside", "audio" + refElem1Name);
 	
 	$('#' + elemName).draggable({
@@ -276,6 +291,9 @@ function Instruction5()
 	elemName = mObjectsList.splice(index, 1)[0];
 	refElem2Name = elemName;
 	
+	var lbl = document.getElementById("animalName");
+	lbl.innerHTML=elemName;
+
 	PlayAudioCombined("audioPut", "audio" + elemName, "audioAbove", "audio" + setElem2Name);
 	
 	$('#' + elemName).draggable({
@@ -302,6 +320,9 @@ function Instruction6()
 	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
 	elemName = mObjectsList.splice(index, 1)[0];
 	
+	var lbl = document.getElementById("animalName");
+	lbl.innerHTML=elemName;
+
 	PlayAudioCombined("audioPut", "audio" + elemName, "audioBelow", "audio" + refElem3Name);
 	
 	$('#' + elemName).draggable({
@@ -328,6 +349,9 @@ function Instruction7()
 	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
 	elemName = mObjectsList.splice(index, 1)[0];
 	
+	var lbl = document.getElementById("animalName");
+	lbl.innerHTML=elemName;
+
 	PlayAudioCombined("audioPut", "audio" + elemName, "audioAbove", "audio" + refElem2Name);
 	
 	$('#' + elemName).draggable({

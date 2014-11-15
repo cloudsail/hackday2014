@@ -158,7 +158,9 @@ li{
     display: inline-block;
 }
 
-
+.nameLabel {
+    font-size: 300%;
+}
 
 
 
