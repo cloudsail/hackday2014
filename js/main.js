@@ -18,6 +18,10 @@ function Initialize()
 	Instruction1();
 }
 
+function InitializeObjects()
+{
+}
+
 function InitializeGrid()
 {
 	mGridImages = new Array(3);
@@ -27,17 +31,13 @@ function InitializeGrid()
 	}
 	
 	var elem1 = document.createElement("img");
-	elem1.src = "img/bird-rev.jpg";
+	elem1.src = "img/bird.jpg";
 	
 	var elem2 = document.createElement("img");
-	elem2.src = "img/elephant-rev.jpg";
+	elem2.src = "img/elephant.jpg";
 	
 	document.getElementById("space4").appendChild(elem1);
 	document.getElementById("space9").appendChild(elem2);
-}
-
-function InitializeObjects()
-{
 }
 
 function PlayAudio1()
