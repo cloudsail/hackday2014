@@ -12,10 +12,10 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="../../Downloads/hackday2014-master-3/css/normalize.css">
-        <link href="../../Downloads/hackday2014-master-3/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../Downloads/hackday2014-master-3/css/main.css">
-        <script src="../../Downloads/hackday2014-master-3/js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -23,9 +23,7 @@
         <![endif]-->
 
         <div class="container">
-            <img src="img/gametitle.png" alt="I love to learn" height="180" width="270">
-            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-            <input type="button" id="startBtn" value="Start Game" onclick="Initialize()" class="btn btn-lg btn-success"></input>
+            <img src="img/gametitle.png" alt="I love to learn" height="170" width="245">
             <section id="content" class="grid">
                 <div class="inner-grid">
                     <div class="row">
@@ -35,7 +33,7 @@
                     </div>
                     <div class="row">
                         <div id="space4" class="col-md-4"></div>
-                        <div id="space5"></div>
+                        <div id="space5" class="col-md-4"></div>
                         <div id="space6" class="col-md-4"></div>
                     </div>
                     <div class="row">
@@ -56,56 +54,61 @@
             </section>
         </div>
 		
-		
+		<input type="button" id="startBtn" value="Start Game" onclick="Initialize()" class="btn btn-lg btn-success"></input>
 
 		<div class="container">
 			<label id="debug"></label>
 		</div>
 		
 		<audio id="audioAbove">
-			<source src="../../Downloads/hackday2014-master-3/audio\above_the.wav" type="audio/wav" />
+			<source src="audio\above_the.wav" type="audio/wav" />
 		</audio>
 		<audio id="audioBelow">
-			<source src="../../Downloads/hackday2014-master-3/audio\below_the.wav" type="audio/wav" />
+			<source src="audio\below_the.wav" type="audio/wav" />
 		</audio>
 		<audio id="audioBeside">
-			<source src="../../Downloads/hackday2014-master-3/audio\beside_the.wav" type="audio/wav" />
+			<source src="audio\beside_the.wav" type="audio/wav" />
 		</audio>
 		<audio id="audiobird">
-			<source src="../../Downloads/hackday2014-master-3/audio\bird.wav" type="audio/wav" />
+			<source src="audio\bird.wav" type="audio/wav" />
 		</audio>
 		<audio id="audioelephant">
-			<source src="../../Downloads/hackday2014-master-3/audio\elephant.wav" type="audio/wav" />
+			<source src="audio\elephant.wav" type="audio/wav" />
 		</audio>
 		<audio id="audiogiraffe">
-			<source src="../../Downloads/hackday2014-master-3/audio\giraffe.wav" type="audio/wav" />
+			<source src="audio\giraffe.wav" type="audio/wav" />
 		</audio>
 		<audio id="audiolion">
-			<source src="../../Downloads/hackday2014-master-3/audio\lion.wav" type="audio/wav" />
+			<source src="audio\lion.wav" type="audio/wav" />
 		</audio>
 		<audio id="audiomonkey">
-			<source src="../../Downloads/hackday2014-master-3/audio\monkey.wav" type="audio/wav" />
+			<source src="audio\monkey.wav" type="audio/wav" />
 		</audio>
 		<audio id="audiopenguin">
-			<source src="../../Downloads/hackday2014-master-3/audio\penguin.wav" type="audio/wav" />
+			<source src="audio\penguin.wav" type="audio/wav" />
 		</audio>
 		<audio id="audioPut">
-			<source src="../../Downloads/hackday2014-master-3/audio\put_the.wav" type="audio/wav" />
+			<source src="audio\put_the.wav" type="audio/wav" />
 		</audio>
 		<audio id="audioseahorse">
-			<source src="../../Downloads/hackday2014-master-3/audio\seahorse.wav" type="audio/wav" />
+			<source src="audio\seahorse.wav" type="audio/wav" />
 		</audio>
 		<audio id="audiosnake">
-			<source src="../../Downloads/hackday2014-master-3/audio\snake.wav" type="audio/wav" />
+			<source src="audio\snake.wav" type="audio/wav" />
 		</audio>
 		<audio id="audioturtle">
-			<source src="../../Downloads/hackday2014-master-3/audio\turtle.wav" type="audio/wav" />
+			<source src="audio\turtle.wav" type="audio/wav" />
 		</audio>
+		
+		<div id="popup" >
+			<span class="logo">You Won!</span></br>
+		</div>
 
 		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
-		<script src="../../Downloads/hackday2014-master-3/js/vendor/jquery.ui.touch-punch.min.js"></script>
-        <script src="../../Downloads/hackday2014-master-3/js/plugins.js"></script>
-        <script src="../../Downloads/hackday2014-master-3/js/main.js"></script>
+		<script src="js/vendor/jquery.ui.touch-punch.min.js"></script>
+		<script src="js/vendor/jquery.bpopup.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>
