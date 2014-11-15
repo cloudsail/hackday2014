@@ -108,7 +108,7 @@ h1{
 }
 .grid .col-md-4{
     height: 110px;
-    border: 2px solid #ddd;
+    border: 2px solid #5bc0de;
 }   
 .inner-grid, .inner-pics{
     display: inline-block;
@@ -158,9 +158,7 @@ li{
     display: inline-block;
 }
 
-.nameLabel {
-    font-size: 300%;
-}
+
 
 .button.b-close{
 	border-radius:7px 7px 7px 7px;
