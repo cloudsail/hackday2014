@@ -3,6 +3,12 @@ var mObjectsList;
 var debug = document.getElementById("debug");
 var elementDragged = null;
 
+var setElem1Name;
+var setElem2Name;
+var refElem1Name;
+var refElem2Name;
+var refElem3Name;
+
 var audio1 = null;
 var audio2 = null;
 var audio3 = null;
@@ -11,15 +17,22 @@ var audio4 = null;
 function Initialize()
 {
 	document.getElementById("startBtn").disabled = true;
-	mObjectsList = new Array("bird","elephant","giraffe","lion","monkey","penguin","seahorse","snake","turtle");
-	
-	InitializeGrid();
 	
 	Instruction1();
 }
 
 function InitializeObjects()
 {
+	var index1 = Math.floor(Math.random() * (mObjectsList.length - 1));
+	setElem1Name = mObjectsList.splice(index1, 1)[0];
+	
+	var index2 = Math.floor(Math.random() * (mObjectsList.length - 1));
+	setElem2Name = mObjectsList.splice(index2, 1)[0];
+	
+	for (i = 0; i < mObjectsList.length; i++)
+	{
+		$('<li id=\"' + mObjectsList[i] + '\" class="pic-4"><span class="img img-' + mObjectsList[i] + '\"></span></li>').appendTo('#objectsList');
+	}
 }
 
 function InitializeGrid()
@@ -31,10 +44,10 @@ function InitializeGrid()
 	}
 	
 	var elem1 = document.createElement("img");
-	elem1.src = "img/bird.jpg";
+	elem1.src = "img/" + setElem1Name + ".jpg";
 	
 	var elem2 = document.createElement("img");
-	elem2.src = "img/elephant.jpg";
+	elem2.src = "img/" + setElem2Name + ".jpg";
 	
 	document.getElementById("space4").appendChild(elem1);
 	document.getElementById("space9").appendChild(elem2);
@@ -123,16 +136,13 @@ function HandleDragOver(e)
 
 function Instruction1()
 {
-	PlayAudioCombined("audioPut", "audioMonkey", "audioAbove", "audioBird");
+	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
+	elemName = mObjectsList.splice(index, 1)[0];
+	refElem1Name = elemName;
+
+	PlayAudioCombined("audioPut", "audio" + elemName, "audioAbove", "audio" + setElem1Name);
 	
-	// Make corresponding object draggable
-	//var monkey = document.getElementById("monkey");
-	//monkey.setAttribute("draggable", "true");
-	//monkey.addEventListener('dragstart', HandleDragStart);
-	//monkey.addEventListener('dragend', HandleDragEnd);
-	//monkey.addEventListener('touchstart', HandleTouchStart);
-	//monkey.addEventListener('touchmove', HandleTouchMove);
-	$('#monkey').draggable({
+	$('#' + elemName).draggable({
 		containment: '#content',
 		stack: '#objectsList li',
 		cursor: 'move',
@@ -149,31 +159,16 @@ function Instruction1()
 			Instruction2();
 		}
 	});
-	
-	// Make corresponding space receive the object
-	//var space1 = document.getElementById("space1");
-	//space1.addEventListener('dragover', HandleDragOver);
-	//space1.addEventListener('drop', function(e) {
-	//	if (e.preventDefault) e.preventDefault();
-	//	if (e.stopPropagation) e.stopPropagation(); 
-	//
-	//	this.innerHTML = e.dataTransfer.getData('text/html');
-		
-	//	document.getElementById("objectsList").removeChild(elementDragged);
-		
-	//	Instruction2();
-	//	return false;
-	//});
 }
 
 function Instruction2()
 {
-	//space1.removeEventListener('dragover', HandleDragOver);
-	//space1.removeEventListener('drop', HandleDrop);
+	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
+	elemName = mObjectsList.splice(index, 1)[0];
 	
-	PlayAudioCombined("audioPut", "audioSnake", "audioBelow", "audioBird");
+	PlayAudioCombined("audioPut", "audio" + elemName, "audioBelow", "audio" + setElem1Name);
 	
-	$('#snake').draggable({
+	$('#' + elemName).draggable({
 		containment: '#content',
 		stack: '#objectsList li',
 		cursor: 'move',
@@ -190,34 +185,16 @@ function Instruction2()
 			Instruction3();
 		}
 	});
-	
-	/*var snake = document.getElementById("snake");
-	snake.setAttribute("draggable", "true");
-	snake.addEventListener('dragstart', HandleDragStart);
-	snake.addEventListener('dragend', HandleDragEnd);
-	
-	var space7 = document.getElementById("space7");
-	space7.addEventListener('dragover', HandleDragOver);
-	space7.addEventListener('drop', function(e) {
-		if (e.preventDefault) e.preventDefault();
-		if (e.stopPropagation) e.stopPropagation(); 
-	
-		this.innerHTML = e.dataTransfer.getData('text/html');
-		
-		document.getElementById("objectsList").removeChild(elementDragged);
-		
-		Instruction3();
-		return false;
-	});*/
 }
 
 function Instruction3()
 {
-	//space7.removeEventListener('dragover', HandleDragOver);
-	//space7.removeEventListener('drop', HandleDrop);
+	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
+	elemName = mObjectsList.splice(index, 1)[0];
 	
-	PlayAudioCombined("audioPut", "audioPenguin", "audioBeside", "audioElephant");
-	$('#penguin').draggable({
+	PlayAudioCombined("audioPut", "audio" + elemName, "audioBeside", "audio" + setElem2Name);
+	
+	$('#' + elemName).draggable({
 		containment: '#content',
 		stack: '#objectsList li',
 		cursor: 'move',
@@ -234,34 +211,17 @@ function Instruction3()
 			Instruction4();
 		}
 	});
-	
-	/*var penguin = document.getElementById("penguin");
-	penguin.setAttribute("draggable", "true");
-	penguin.addEventListener('dragstart', HandleDragStart);
-	penguin.addEventListener('dragend', HandleDragEnd);
-	
-	var space8 = document.getElementById("space8");
-	space8.addEventListener('dragover', HandleDragOver);
-	space8.addEventListener('drop', function(e) {
-		if (e.preventDefault) e.preventDefault();
-		if (e.stopPropagation) e.stopPropagation(); 
-	
-		this.innerHTML = e.dataTransfer.getData('text/html');
-		
-		document.getElementById("objectsList").removeChild(elementDragged);
-		
-		Instruction4();
-		return false;
-	});*/
 }
 
 function Instruction4()
 {
-	//space8.removeEventListener('dragover', HandleDragOver);
-	//space8.removeEventListener('drop', HandleDrop);
+	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
+	elemName = mObjectsList.splice(index, 1)[0];
+	refElem3Name = elemName;
 	
-	PlayAudioCombined("audioPut", "audioLion", "audioBeside", "audioMonkey");
-	$('#lion').draggable({
+	PlayAudioCombined("audioPut", "audio" + elemName, "audioBeside", "audio" + refElem1Name);
+	
+	$('#' + elemName).draggable({
 		containment: '#content',
 		stack: '#objectsList li',
 		cursor: 'move',
@@ -278,35 +238,17 @@ function Instruction4()
 			Instruction5();
 		}
 	});
-	
-	/*var lion = document.getElementById("lion");
-	lion.setAttribute("draggable", "true");
-	lion.addEventListener('dragstart', HandleDragStart);
-	lion.addEventListener('dragend', HandleDragEnd);
-	
-	var space2 = document.getElementById("space2");
-	space2.addEventListener('dragover', HandleDragOver);
-	space2.addEventListener('drop', function(e) {
-		if (e.preventDefault) e.preventDefault();
-		if (e.stopPropagation) e.stopPropagation(); 
-	
-		this.innerHTML = e.dataTransfer.getData('text/html');
-		
-		document.getElementById("objectsList").removeChild(elementDragged);
-		
-		Instruction5();
-		return false;
-	});*/
 }
 
 function Instruction5()
 {
-	//space2.removeEventListener('dragover', HandleDragOver);
-	//space2.removeEventListener('drop', HandleDrop);
+	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
+	elemName = mObjectsList.splice(index, 1)[0];
+	refElem2Name = elemName;
 	
-	PlayAudioCombined("audioPut", "audioGiraffe", "audioAbove", "audioElephant");
+	PlayAudioCombined("audioPut", "audio" + elemName, "audioAbove", "audio" + setElem2Name);
 	
-	$('#giraffe').draggable({
+	$('#' + elemName).draggable({
 		containment: '#content',
 		stack: '#objectsList li',
 		cursor: 'move',
@@ -323,35 +265,16 @@ function Instruction5()
 			Instruction6();
 		}
 	});
-	
-	/*var giraffe = document.getElementById("giraffe");
-	giraffe.setAttribute("draggable", "true");
-	giraffe.addEventListener('dragstart', HandleDragStart);
-	giraffe.addEventListener('dragend', HandleDragEnd);
-	
-	var space6 = document.getElementById("space6");
-	space6.addEventListener('dragover', HandleDragOver);
-	space6.addEventListener('drop', function(e) {
-		if (e.preventDefault) e.preventDefault();
-		if (e.stopPropagation) e.stopPropagation(); 
-	
-		this.innerHTML = e.dataTransfer.getData('text/html');
-		
-		document.getElementById("objectsList").removeChild(elementDragged);
-		
-		Instruction6();
-		return false;
-	});*/
 }
 
 function Instruction6()
 {
-	//space6.removeEventListener('dragover', HandleDragOver);
-	//space6.removeEventListener('drop', HandleDrop);
+	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
+	elemName = mObjectsList.splice(index, 1)[0];
 	
-	PlayAudioCombined("audioPut", "audioTurtle", "audioBelow", "audioLion");
+	PlayAudioCombined("audioPut", "audio" + elemName, "audioBelow", "audio" + refElem3Name);
 	
-	$('#turtle').draggable({
+	$('#' + elemName).draggable({
 		containment: '#content',
 		stack: '#objectsList li',
 		cursor: 'move',
@@ -368,35 +291,16 @@ function Instruction6()
 			Instruction7();
 		}
 	});
-	
-	/*var turtle = document.getElementById("turtle");
-	turtle.setAttribute("draggable", "true");
-	turtle.addEventListener('dragstart', HandleDragStart);
-	turtle.addEventListener('dragend', HandleDragEnd);
-	
-	var space5 = document.getElementById("space5");
-	space5.addEventListener('dragover', HandleDragOver);
-	space5.addEventListener('drop', function(e) {
-		if (e.preventDefault) e.preventDefault();
-		if (e.stopPropagation) e.stopPropagation(); 
-	
-		this.innerHTML = e.dataTransfer.getData('text/html');
-		
-		document.getElementById("objectsList").removeChild(elementDragged);
-		
-		Instruction7();
-		return false;
-	});*/
 }
 
 function Instruction7()
 {
-	//space5.removeEventListener('dragover', HandleDragOver);
-	//space5.removeEventListener('drop', HandleDrop);
+	var index = Math.floor(Math.random() * (mObjectsList.length - 1));
+	elemName = mObjectsList.splice(index, 1)[0];
 	
-	PlayAudioCombined("audioPut", "audioSeahorse", "audioAbove", "audioGiraffe");
+	PlayAudioCombined("audioPut", "audio" + elemName, "audioAbove", "audio" + refElem2Name);
 	
-	$('#seahorse').draggable({
+	$('#' + elemName).draggable({
 		containment: '#content',
 		stack: '#objectsList li',
 		cursor: 'move',
@@ -411,25 +315,11 @@ function Instruction7()
 			ui.draggable.draggable( 'option', 'revert', false );
 		}
 	});
-	
-	/*var seahorse = document.getElementById("seahorse");
-	seahorse.setAttribute("draggable", "true");
-	seahorse.addEventListener('dragstart', HandleDragStart);
-	seahorse.addEventListener('dragend', HandleDragEnd);
-	
-	var space3 = document.getElementById("space3");
-	space3.addEventListener('dragover', HandleDragOver);
-	space3.addEventListener('drop', function(e) {
-		if (e.preventDefault) e.preventDefault();
-		if (e.stopPropagation) e.stopPropagation(); 
-	
-		this.innerHTML = e.dataTransfer.getData('text/html');
-		
-		document.getElementById("objectsList").removeChild(elementDragged);
-		
-		return false;
-	});*/
 }
 
 window.onload = function() {
+	mObjectsList = new Array("bird","elephant","giraffe","lion","monkey","penguin","seahorse","snake","turtle");
+	
+	InitializeObjects();
+	InitializeGrid();
 }
