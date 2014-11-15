@@ -1,6 +1,6 @@
-<script type="text/javascript">
 var mGridImages;
 var mObjectsList;
+var debug = document.getElementById("debug");
 
 function Initialize()
 {
@@ -13,13 +13,22 @@ function Initialize()
 
 function InitializeGrid()
 {
+	debug.value = "Initializing grid";
+	
 	mGridImages = new Array(3);
 	for (var i in mGridImages)
 	{
 		i = new Array(3);
 	}
 	
+	var elem1 = document.createElement("img");
+	elem1.src = "img/bird-rev.jpg";
 	
+	var elem2 = document.createElement("img");
+	elem2.src = "img/elephant-rev.jpg";
+	
+	document.getElementById("space4").appendChild(elem1);
+	document.getElementById("space9").appendChild(elem2);
 }
 
 function InitializeObjects()
@@ -29,7 +38,7 @@ function InitializeObjects()
 function PlayAudio(audioId)
 {
 	var audio = document.getElementById(audioId);
-	
+	audio.play();
 }
 
 function Instruction1()
@@ -64,4 +73,6 @@ function Instruction7()
 {
 }
 
-</script>
+window.onload = function() {
+	Initialize();
+}
