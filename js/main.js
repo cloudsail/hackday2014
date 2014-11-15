@@ -16,9 +16,39 @@ var audio4 = null;
 
 function Initialize()
 {
-	document.getElementById("startBtn").disabled = true;
+	var button = document.getElementById("startBtn");
+	button.disabled = true;
+	
+	if (button.value === "Play Again!")
+	{
+		for (i = 1; i <= 9; i++)
+		{
+			$('#space' + i).empty();
+		}
+		
+		$('#objectsList').empty();
+		
+		InitializeObjects();
+		InitializeGrid();
+	}
 	
 	Instruction1();
+}
+
+function ResetGame()
+{
+	alert("You Won!");
+	
+	var button = document.getElementById("startBtn");
+	button.value = "Play Again!";
+	button.disabled = false;
+	
+	InitializeObjectsArray();
+}
+
+function InitializeObjectsArray()
+{
+	mObjectsList = new Array("bird","elephant","giraffe","lion","monkey","penguin","seahorse","snake","turtle");
 }
 
 function InitializeObjects()
@@ -313,12 +343,13 @@ function Instruction7()
 			$(this).droppable( 'disable' );
 			ui.draggable.position( { of: $(this), my: 'center center', at: 'center center' } );
 			ui.draggable.draggable( 'option', 'revert', false );
+			ResetGame();
 		}
 	});
 }
 
 window.onload = function() {
-	mObjectsList = new Array("bird","elephant","giraffe","lion","monkey","penguin","seahorse","snake","turtle");
+	InitializeObjectsArray();
 	
 	InitializeObjects();
 	InitializeGrid();
