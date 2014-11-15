@@ -4,6 +4,7 @@ var debug = document.getElementById("debug");
 
 function Initialize()
 {
+	document.getElementById("startBtn").disabled = true;
 	mObjectsList = new Array("bird","elephant","giraffe","lion","monkey","penguin","seahorse","snake","turtle");
 	
 	InitializeGrid();
@@ -74,5 +75,4 @@ function Instruction7()
 }
 
 window.onload = function() {
-	Initialize();
 }
